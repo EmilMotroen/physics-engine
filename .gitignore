@@ -1,0 +1,40 @@
+# Ignore build directories
+/build/
+/CMakeFiles/
+/CMakeCache.txt
+
+# Ignore generated files
+Makefile
+cmake_install.cmake
+compile_commands.json
+
+# Ignore executables and libraries
+*.exe 
+*.out
+*.a 
+*.so
+*.dll
+*.dylib
+
+# Ignore temporary files
+*.tmp 
+*.log
+*.swp
+*.swo
+*.bak
+
+# Ignore editor-specific files
+.vscode/
+.idea/
+*.iml
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db 
+
+# Ignore Doxygen generated files
+/docs/
+/html/
+/latex/
+/xml/
+/doxygen.log
