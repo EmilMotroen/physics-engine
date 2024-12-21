@@ -1,9 +1,5 @@
 #include "main.h"
 
-const char* APP_TITLE = "Physics Engine";
-const int windowWidth = 800;
-const int windowHeight = 600;
-
 int main() {
     // Initialize GLFW
     if (!glfwInit()) {
@@ -16,7 +12,7 @@ int main() {
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
     
     // Initialize window
-    GLFWwindow* window = glfwCreateWindow(windowWidth, windowHeight, APP_TITLE, NULL, NULL);
+    GLFWwindow* window = glfwCreateWindow(windowWidth, windowHeight, app_title, NULL, NULL);
     if (window == NULL) {
         std::cerr << "Window failed to initialize." << std::endl;
         glfwTerminate();
@@ -52,6 +48,8 @@ int main() {
 }
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height) {
+    (void)window;   // Mark parameter as used, otherwise it won't compile 
+                    // since it's set to treat warnings as errors. 
     glViewport(0, 0, width, height);
 }
 

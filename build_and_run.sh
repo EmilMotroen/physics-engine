@@ -10,16 +10,27 @@ command -v make >/dev/null 2>&1 ||
     { echo >&2 "Make is required but it's not installed, aborting."; exit 1;}
 
 if [[ "$1" == "--help"  || "$1" == "-h" ]]; then
-    echo "Usage: $0 [build_type] [VERBOSE=1] [executable_name]"
+    echo "Usage: $0 [build_type] [VERBOSE=1] [executable_name] [compiler]"
     echo "build_type: Debug (default) or Release"
     echo "VERBOSE=1: Enable verbose output to build/verbose_output.log"
     echo "executable_name: Name of the executable to run (default: main_executable)"
+    echo "compiler: Specify 'clang' to use Clang, otherwise g++ is used"
     exit 0
 fi
 
 BUILD_TYPE=${1:-Debug} # Default to Debug if no argument is provided
 VERBOSE=${2:-}
-EXECUTABLE=${3:-main_executable}
+COMPILER=${3:-g++}
+EXECUTABLE=${4:-main_executable}
+
+# Set the compiler
+if [[ "$COMPILER" == "clang" ]]; then
+    export CC=clang
+    export CXX=clang++
+else
+    export CC=gcc
+    export CXX=g++
+fi
 
 # Clean build directory
 rm -rf build

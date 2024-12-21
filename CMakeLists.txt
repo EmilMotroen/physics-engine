@@ -7,6 +7,11 @@ project(PhysicsEngine)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
+# Add compiler flags
+if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Werror -O2 -g -fsanitize=address -fstack-protector-strong ")
+endif()
+
 # Add the physics engine library
 add_library(physics_engine 
     src/physics_engine/physics_engine.cpp
