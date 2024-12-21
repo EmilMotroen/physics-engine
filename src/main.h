@@ -1,14 +1,12 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-// C++ includes
-#include <iostream>
-
 // OpenGL includes
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
 // Project includes
+#include "../include/pch.h"
 #include "../include/physics_engine/physics_engine.h"
 /**#include "../include/rendering" */
 
