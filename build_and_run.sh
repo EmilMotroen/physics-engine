@@ -39,6 +39,16 @@ fi
 rm -rf build
 mkdir -p build
 
+# Function to handle build errors and rerun with verbose logging
+handle_error() {
+    echo "Build failed. Rerunning with verbose output..."
+    cmake --build build --verbose > build/verbose_output.log 2>&1
+    exit 1 
+}
+
+# Set a trap to call the handle_error function on any error
+trap 'handle_error' ERR
+
 # Run CMake and Make
 cmake -S . -B build -DCMAKE_BUILD_TYPE="$BUILD_TYPE" -DEXECUTABLE_NAME="$EXECUTABLE" 
 if [ "$VERBOSE" == "VERBOSE=1" ]; then
@@ -47,5 +57,11 @@ else
     cmake --build build
 fi
 
+# If the build is successful, clear the trap
+trap - ERR
+
 # Run the executable
 ./build/"$EXECUTABLE"
+
+# Echo a success message
+echo $'Build and execution success.\n'
