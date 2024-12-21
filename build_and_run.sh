@@ -23,6 +23,9 @@ VERBOSE=${2:-}
 COMPILER=${3:-g++}
 EXECUTABLE=${4:-main_executable}
 
+# Convert input to lowercase so writing Clang still works
+COMPILER=$(echo "$COMPILER" | tr '[:upper:]' '[:lower:]')
+
 # Set the compiler
 if [[ "$COMPILER" == "clang" ]]; then
     export CC=clang
