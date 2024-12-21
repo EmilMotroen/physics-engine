@@ -23,8 +23,9 @@ VERBOSE=${2:-}
 COMPILER=${3:-g++}
 EXECUTABLE=${4:-main_executable}
 
-# Convert input to lowercase so writing Clang still works
+# Convert input to lowercase
 COMPILER=$(echo "$COMPILER" | tr '[:upper:]' '[:lower:]')
+VERBOSE=$(echo "$VERBOSE" | tr '[:upper:]' '[:lower:]')
 
 # Set the compiler
 if [[ "$COMPILER" == "clang" ]]; then
@@ -51,7 +52,7 @@ trap 'handle_error' ERR
 
 # Run CMake and Make
 cmake -S . -B build -DCMAKE_BUILD_TYPE="$BUILD_TYPE" -DEXECUTABLE_NAME="$EXECUTABLE" 
-if [ "$VERBOSE" == "VERBOSE=1" ]; then
+if [ "$VERBOSE" == "verbose=1" ]; then
     cmake --build build --verbose > build/verbose_output.log 2>&1
 else
     cmake --build build
