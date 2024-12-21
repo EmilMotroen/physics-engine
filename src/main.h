@@ -12,6 +12,11 @@
 #include "../include/physics_engine/physics_engine.h"
 /**#include "../include/rendering" */
 
+// Global variables and definitions
+const char* app_title = "Physics Engine";
+const int windowWidth = 800;
+const int windowHeight = 600;
+
 // Function prototypes
 /**
  * @brief When resizing the window, the viewport should be adjusted as well.
