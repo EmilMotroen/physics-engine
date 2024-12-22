@@ -42,3 +42,5 @@ target_include_directories(${EXECUTABLE_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}
 
 # Enable pre-compiled headers
 target_precompile_headers(${EXECUTABLE_NAME} PRIVATE include/pch.h)
+
+#TODO: Add running the gen_docs.sh script here so it runs everytime the program builds.
