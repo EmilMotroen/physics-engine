@@ -58,7 +58,7 @@ int main() {
     glShaderSource(vertexShader, 1, &vertexShaderSource, NULL);
     glCompileShader(vertexShader);
 
-    // Check if shader compilation was successfull
+    // Check if shader compilation was successful
     int success;
     char infoLog[512];
     glGetShaderiv(vertexShader, GL_COMPILE_STATUS, &success);
@@ -74,7 +74,7 @@ int main() {
     glShaderSource(fragmentShader, 1, &fragmentShaderSource, NULL);
     glCompileShader(fragmentShader);
 
-    // Check if shader compilation was successfull
+    // Check if shader compilation was successful
     glGetShaderiv(fragmentShader, GL_COMPILE_STATUS, &success);
 
     if (!success) {

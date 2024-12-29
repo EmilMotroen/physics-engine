@@ -1,0 +1,92 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{geometry}
+\geometry{margin=1in}
+
+\title{Physics Engine Development Log}
+\author{Emil Motrøen}
+\date{Project Start: December 21st, 2024}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+\newpage
+
+\section{Introduction}
+This document serves as a development log for the project. It includes notes on progress, decisions made, and any issues encountered.
+
+\section{Project Setup}
+\subsection{Initial Setup}
+\begin{itemize}
+    \item Created project repository.
+    \item Set up initial directory structure.
+    \item Added basic CMake configuration.
+\end{itemize}
+
+\subsection{Tool Installation}
+\begin{itemize}
+    \item Installed necessary tools: \texttt{cmake}, \texttt{g++}, \texttt{clang}, \texttt{glad}, \texttt{glfw}, \texttt{doxygen}.
+    \item Verified installations and versions.
+\end{itemize}
+
+\section{Development Log}
+\subsection{2024-12-21}
+\begin{itemize}
+	\item Created basic project files, directories and basic files setup.
+	\item Added support for using either g++ or Clang when compiling.
+	\item Added additional compiler flags and a file for pre-compiled headers.
+	\item Implemented basic triangle on the screen using OpenGL.
+	\item Fixed an issue where g++ and Clang have a few different compiler flags by removing the non-shared ones.
+	\item Added a bash script for building and running the code, build\_and\_run.sh.
+\end{itemize}
+
+\subsection{2024-12-22}
+\begin{itemize}
+	\item The build\_and\_run.sh script now can produce verbose output.
+	\item The build\_and\_run.sh script converts input to lowercase to make comparisons easier.
+	\item Added a bash script to run Doxygen to create documentation easier, gen\_docs.sh.
+	
+\end{itemize}
+
+\subsection{2024-12-23}
+\begin{itemize}
+    \item Implemented basic build script.
+    \item Added error handling to the build script.
+    \item Integrated Doxygen for documentation generation.
+\end{itemize}
+
+\subsection{2024-12-24}
+\begin{itemize}
+    \item Updated CMakeLists.txt to include custom targets.
+    \item Fixed issues with cache loading in CMake.
+    \item Started writing \LaTeX{} document for development log. Earlier entries in this section are based on the git messages created before this document.
+\end{itemize}
+
+\subsection{2024-12-29}
+\begin{itemize}
+	\item Made a commit of the new devlog after a Christmas break. 
+\end{itemize}
+
+\section{Issues and Resolutions}
+\subsection{Issue: Cache Loading Error}
+\begin{itemize}
+    \item \textbf{Description:} Encountered "could not load cache" error when adding custom target in CMake.
+    \item \textbf{Resolution:} Ensured proper order of commands in CMakeLists.txt and verified script paths.
+\end{itemize}
+
+\subsection{Issue: Compiler Flags Compatibility}
+\begin{itemize}
+    \item \textbf{Description:} Some compiler flags were not compatible with both \texttt{g++} and \texttt{clang}.
+    \item \textbf{Resolution:} Remove all compiler flags that were not compatible with both compilers.
+\end{itemize}
+
+\section{Future Work}
+\begin{itemize}
+    \item Continue updating the development log with daily progress.
+    \item Finish the OpenGL stuff relatively quickly so that work on the actual physics engine can start.
+\end{itemize}
+
+\end{document}

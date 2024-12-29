@@ -38,3 +38,17 @@ Thumbs.db
 /latex/
 /xml/
 /doxygen.log
+
+# Ignore LaTeX-specific files
+*.log
+*.aug
+*.aux
+*.synctex.gz
+*.toc
+*.bbl
+*.bcf
+*.blg
+*.xml
+*.fls 
+*.fdb_latexmk
+*.synctex(busy)
